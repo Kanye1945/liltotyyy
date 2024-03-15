@@ -44,6 +44,7 @@ public class Main {
                     System.out.println("Quale nome vuoi modificare: ");
                     nome = in.next();
                     nameMod(names, nome);
+                    names[nameMod(names,nome)]= in.next();
                     break;
                 case 6:
                     nameView(names);
@@ -109,14 +110,15 @@ public class Main {
         }
     }
 
-    private static String nameMod(String[] names, String name) {
+    private static int nameMod(String[] names, String name) {
         Scanner in = new Scanner(System.in);
+        int pos = 0;
         for (int i = 0; i < names.length; i++) {
             if (names[i].equals(name)) {
-                names[i] = in.next();
+                pos = i;
             }
         }
-        return name;
+        return pos;
     }
 
     private static void nameDeleter(String[] names, String name) {
